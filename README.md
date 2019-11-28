@@ -64,19 +64,76 @@
    2. 리덕스는 액션을 입력받고 변화한 상태를 출력
    3. 이를 수행하는 순수 함수가 리듀서 
 
+#### 리덕스의 구성요소
 
+리듀서
 
+* 상태를 변화시키기 위한 함수
+* 액션을 받고 이 액션에 따라 상태를 변화
 
+```javascript
+function books(state = null, action) { //1
+    switch(action.type) { //2
+        case 'START_READING' : //3 
+            return {
+                ...state,
+                status : 1,
+            }; //3
+        case 'FINISH_READING' :  //4
+            return {
+                ...state,
+                status : 2,
+           }; //4
+           
+        default : return state;
+    }
+}
+```
 
+1. books라는 리듀서 함수를 정의
+2. 첫 번째 매개변수로 state가 전달, 두 번째 매개변수로 action이 전달 state는 현재 상태를 나타내고 리듀서는 state를 조작
+3. action은 반드시 type 속성을 가지고 있어야 함.
 
+#### 스프레드 연산자
 
+배열과 객체, 함수에 전달하는 매개변수 등을 전개 
 
+{% tabs %}
+{% tab title="배열 전개" %}
+```javascript
+const foo = [2, 3];
+console.log([1, ...foo, 4, 5);
+```
+{% endtab %}
+{% endtabs %}
 
+{% tabs %}
+{% tab title="결과" %}
+```javascript
+[1, 2, 3, 4, 5]
+```
+{% endtab %}
+{% endtabs %}
 
+{% tabs %}
+{% tab title="객체 전개" %}
+```javascript
+const foo = {name: 'Taro', age: 25};
+const bar = {name: 'Jiro', location: 'Tokyo'};
+console.log({...foo, ...bar});
+```
+{% endtab %}
+{% endtabs %}
 
+{% tabs %}
+{% tab title="결과" %}
+```javascript
+{name :'Jiro', age: 25, location: 'Tokyo'} 
+```
+{% endtab %}
+{% endtabs %}
 
-
-
+속 성이 중복될 경우 뒤에 있는것이 우선함.
 
 
 
