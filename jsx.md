@@ -35,9 +35,7 @@ const element = <h1> Hello, {getFullName('inseong')}</h1>;
 
 * HTML태그와 거의 같음
 * 표현식 {} 로도 가능
-* HTML처럼 속성 이름만 지정 가능
-
- 
+* HTML처럼 속성 이름만 지정 가능 
 
 {% tabs %}
 {% tab title="속성 지정" %}
