@@ -70,3 +70,33 @@ const list = (
 )        
 ```
 
+### 바벨을 사용해 JSX를 자바스크립트로 변환하기
+
+#### 트랜스파일러와 바벨
+
+JSX는 트랜스파일러를 기반으로 자바스크립트로 변환해야 실행 가능\(대표적 커피스크립트 ,타입스크립트, 바벨\)
+
+### CLI
+
+npm으로 필요 패키지 설치
+
+```javascript
+$ midir babel-cli-example
+$ cd babel-cli-example
+$ echo "{}" > package.json
+$ npm install --save-dev babel-cli babel-preset-react
+```
+
+
+
+#### 웹팩이란?
+
+* 모듈 번들러라고 부르는 도구
+* CommonJS모듈 형식으로 작성된 소스 파일을 묶어서  정적 자바스크립트 파일로 출력
+
+
+
+
+
+
+
