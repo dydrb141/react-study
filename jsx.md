@@ -36,6 +36,7 @@ const element = <h1> Hello, {getFullName('inseong')}</h1>;
 * HTML태그와 거의 같음
 * 표현식 {} 로도 가능
 * HTML처럼 속성 이름만 지정 가능 
+* 자바스크립트 예약어는 사용할 수 없으므로 JSX는 class 속성을 className으로, for 속성을 htmlFor로 사
 
 {% tabs %}
 {% tab title="속성 지정" %}
@@ -50,7 +51,22 @@ const inputValue = 'some value';
 const element = <input type="text" value={inputValue} />;
 ```
 {% endtab %}
+
+{% tab title="속성 이름만 지정" %}
+```javascript
+const element1 = <input type="checkbox" checked />;
+const element2 = <input type="checkbox" checked={true} />; //위와 동일
+```
+{% endtab %}
 {% endtabs %}
 
+#### 자식 요소에 배열 전달
 
+```javascript
+const list = (
+    <ul>
+        {[1, 2, 3].map(num => <li>{num}</li>)}
+    </ul>
+)        
+```
 
