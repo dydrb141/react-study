@@ -81,18 +81,48 @@ JSX는 트랜스파일러를 기반으로 자바스크립트로 변환해야 실
 npm으로 필요 패키지 설치
 
 ```javascript
-$ midir babel-cli-example
+$ mkdir babel-cli-example
 $ cd babel-cli-example
 $ echo "{}" > package.json
 $ npm install --save-dev babel-cli babel-preset-react
 ```
 
+* babel-cli-example 디렉토리를 만듬
+* pakage.json 임시 파일을 ㅇ만듬
+* npm install은 npm 패키지를 설치 bable-cli와 babel-preset-react설치
+* babel-cli는 cli에서 동작할수 있는 패키지
+* babel-preset-react는 리액트를 이용해 개발할 때 필요한 바벨 플러그인을 모아 놓음
 
+babel을 사용하기 위해 아래처럼 코
+
+{% code title="input.js" %}
+```javascript
+ReactDOM.render(
+        <h1>Hello, Babel</h1>,
+        document.getElementById('root')
+);
+```
+{% endcode %}
+
+{% code title="결과" %}
+```javascript
+$ ./node_modules/.bin/babel --presets=react input.js
+
+ReactDOM.render(React.createElement(
+	'h1',
+	null,
+	'Hello, Babel'
+), document.getElementById('root'));
+```
+{% endcode %}
+
+* presets=react를 입력하여 babel-preset-react를 사용하여 변
 
 #### 웹팩이란?
 
 * 모듈 번들러라고 부르는 도구
 * CommonJS모듈 형식으로 작성된 소스 파일을 묶어서  정적 자바스크립트 파일로 출력
+* npm을 사용하는데 이러한 패키지를 웹 브라우저에서 실행 할수 있게 만든 도구
 
 
 
