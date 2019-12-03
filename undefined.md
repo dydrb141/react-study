@@ -107,7 +107,7 @@ class App extends Component {
         this.setState({
            tasks: [],
         });
-    } //set
+    } //setState를 사용해 tasks초기
 
     addTodo(title) {
         const {
@@ -148,5 +148,91 @@ export default App;
 ```
 {% endcode %}
 
+#### TodoInput.js
 
+```javascript
+import React, { Component } from 'react';
+
+class TodoInput extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputValue: '',
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleChange(e) { //inputBox에 값을 입력받아 state에 setting
+                //Hook메소드 임
+        this.setState({
+            inputValue: e.target.value,
+        });
+    }
+
+    handleClick(e) {
+        e.preventDefault();
+        const inputValue = this.state.inputValue;
+        this.props.addTodo(inputValue); //외부에서 호출한 property addTodo호출
+    }
+
+    render() {
+        return (
+            <div>
+                <input placeholder="새로운 TODO를 입력해주세요" value={this.state.inputValue} onChange={this.handleChange}/>
+                <button onClick={this.handleClick}>등록</button>
+            </div>
+        );
+    }
+}
+export default TodoInput;
+```
+
+#### TodoItem
+
+```javascript
+import React from 'react';
+
+function TodoItem(props) {
+    return (
+        <li>
+            {props.title}
+        </li>
+    );
+}
+
+export default TodoItem;
+
+```
+
+#### TodoList
+
+Todo목록을 나타냄
+
+```javascript
+import React, { Component } from 'react';
+import TodoItem from './TodoItem';
+
+class TodoList extends Component{
+    render() {
+        const list = this.props.tasks.map(todo => {
+            return <TodoItem {...todo} key={todo.id} />
+        }); //tasks는 배열이기 때문에 map으로 처리
+        //map메서드는 배열의 각 요소를 매개변수에 지정한 함수로 처리
+        
+
+        return (
+            <div>
+                <ul>
+                    {list}
+                </ul>
+            </div>
+        );
+    }
+}
+
+export default TodoList;
+
+```
 
