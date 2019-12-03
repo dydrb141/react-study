@@ -257,6 +257,15 @@ ComponentWillUnmount
 * 컴포넌트가 언마운트되기 직전에 호출
 * 해당 컴포넌트와 관련된 모든 처리를 정리
 
+#### 데이터 업데이트와 관련된 라이프사이클
+
+컴포넌트의 속성\(Props\) 또는 상태\(State\)가 변경되는 경
+
+componentWillReceiveProps\(nextProps\)  
+아직 새로운 속성을 전달받지 못한 상
+
+
+
 
 
 
