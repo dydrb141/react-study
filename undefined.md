@@ -107,7 +107,7 @@ class App extends Component {
         this.setState({
            tasks: [],
         });
-    }
+    } //set
 
     addTodo(title) {
         const {
@@ -147,4 +147,6 @@ export default App;
 
 ```
 {% endcode %}
+
+
 
