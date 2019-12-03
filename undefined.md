@@ -94,10 +94,13 @@ class App extends Component {
             ],
 
             uniqueId: 1,
-        };
+        }; //state 초기화
 
         this.addTodo = this.addTodo.bind(this);
         this.resetTodo = this.resetTodo.bind(this);
+        //이벤트를 바인드 함. bind는 모든 function 객체가 가지고 있음        
+        //bind메서드는 함수 내부에서 사용할 this를 강제(바인드)함
+        
     }
 
     resetTodo() {
