@@ -236,3 +236,30 @@ export default TodoList;
 
 ```
 
+### 라이프 사이클
+
+#### 마운트와 관련된 라이프사이클 메서드
+
+* 마운트는 새로운 리액트 컴포넌트가 DOM에 배치되는것을 의미
+* 컴포넌트의 render메서드가 처음 호출될때가 마운트 상태
+
+ComponentWillMount : 컴포넌트가 마운트 되기 직전 호출, render 메서드가 호출 되기전 호출
+
+ComponentDidMount: 
+
+* 컴포넌트가 마운트된 직후에 호출
+* Dom접근 가능
+* 이 라이프사이클에서 setState호출 불가능 왜냐하면 state가 변경되면 render메서드가 실행됨
+* 따라서 render -&gt; componentDidMount -&gt; setState -&gt;render 처리되어 2번 render실행
+
+ComponentWillUnmount 
+
+* 컴포넌트가 언마운트되기 직전에 호출
+* 해당 컴포넌트와 관련된 모든 처리를 정리
+
+
+
+
+
+
+
