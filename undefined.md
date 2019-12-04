@@ -261,8 +261,55 @@ ComponentWillUnmount
 
 컴포넌트의 속성\(Props\) 또는 상태\(State\)가 변경되는 경
 
-componentWillReceiveProps\(nextProps\)  
-아직 새로운 속성을 전달받지 못한 상
+componentWillReceiveProps\(nextProps\)
+
+* 아직 새로운 속성을 전달받지 못한 상태이므로 this.props에 원래 속성이 들어 있음
+* 매개변수로 받은 nextProps와 this.props를 비교해서 다양한 처리를 할 수 있는 위치
+* 속성을 전달받기 직전에 호출
+* 속성이 업데이트 될때만 호출
+
+shouldComponetUpdate\(nextPorps, nextState\)
+
+* 리턴값으로 true/false 리턴, 라이프사이클 메서드 내부에서도 this.props와 thist.state에 변경 전값 들어있음
+* 속성 또는 상태 변경이 있을때 호출
+* render를 이어서 호출할지 true/fasle 리턴
+
+componentWillUpdate\(nextProps, nextState\)
+
+* render 전에 호출되는 가장 마지막 라이프 사이클
+* setState를 사용하면 무한 반복이 걸릴수 있음
+
+componentDidUpdate\(prevProps, PrevState\)
+
+* 이전 속성과 상태값이 전달 됨
+* this.props, this.state 변경된 후 즉 render에 사용된 값이 들어있음
+* render를 한 직후, 업데이트 후 DOM에 접근할 수 있는 좋은 시점
+* shouldComponentUpdate 에서 false를 리턴한 경우 해당 베소드는 호출 안됨
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
 
 
 
